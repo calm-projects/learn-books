@@ -250,7 +250,7 @@ password = input('请输⼊您的密码：')
 
 ## 数据类型
 
-![image-20220318143858554](.\python.assets\image-20220318143858554.png)
+![image-20220318143858554](python.assets\image-20220318143858554.png)
 
 
 
