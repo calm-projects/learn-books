@@ -250,7 +250,7 @@ password = input('请输⼊您的密码：')
 
 ## 数据类型
 
-![image-20220318143858554](python.assets\image-20220318143858554.png)
+![image-20220318143858554](python.assets/image-20220318143858554.png)
 
 
 
@@ -553,7 +553,7 @@ for c in string:
 
 #### 字符串切片
 
-![image-20220318164244734](python.assets\image-20220318164244734.png)
+![image-20220318164244734](python.assets/image-20220318164244734.png)
 
 ```python
 # 字符串[开始索引:结束索引:步长] 左闭右开
@@ -605,7 +605,7 @@ print(name_list)
 name_list = []
 ```
 
-![image-20220318161605409](python.assets\image-20220318161605409.png)
+![image-20220318161605409](python.assets/image-20220318161605409.png)
 
 | 序号 | 分类 | 关键字 / 函数 / 方法    | 说明                     |
 | ---- | ---- | ----------------------- | ------------------------ |
