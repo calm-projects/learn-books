@@ -14,11 +14,11 @@ window10：需要安装jdk，scala是依赖jdk的，scala直接官网下载安�
 
 ### 集成插件
 
-![image-20220321135252322](scala.assets\image-20220321135252322.png)
+![image-20220321135252322](scala.assets/image-20220321135252322.png)
 
 ### 项目集成scala
 
-![image-20220321135452750](scala.assets\image-20220321135452750.png)
+![image-20220321135452750](scala.assets/image-20220321135452750.png)
 
 ### 自动添加描述
 
@@ -34,7 +34,7 @@ window10：需要安装jdk，scala是依赖jdk的，scala直接官网下载安�
 */
 ```
 
-![image-20220321180131613](scala.assets\image-20220321180131613.png)
+![image-20220321180131613](scala.assets/image-20220321180131613.png)
 
 #### method
 
@@ -55,11 +55,11 @@ groovyScript("def result='';def stop=false; def params=\"${_1}\".replaceAll('[\\
 groovyScript("def result='';def params=\"${_1}\".replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList(); for(i = 0; i < params.size(); i++) {result+='* @param ' + params[i] + ((i < params.size() - 1) ? '\\n ' : '')};return result", methodParameters())
 ```
 
-![image-20220321190751925](scala.assets\image-20220321190751925.png)
+![image-20220321190751925](scala.assets/image-20220321190751925.png)
 
-![image-20220321190832088](scala.assets\image-20220321190832088.png)
+![image-20220321190832088](scala.assets/image-20220321190832088.png)
 
-![image-20220321191221768](scala.assets\image-20220321191221768.png)
+![image-20220321191221768](scala.assets/image-20220321191221768.png)
 
 
 
@@ -131,13 +131,13 @@ println(s"name=$name, age=$age, url=$url")
         <artifactId>delta-core_${scala.binary.version}</artifactId>
         <version>${delta.version}</version>
     </dependency>
-	<!-- 这个是scala专用的 test 相当于java的junit -->
+    <!-- 这个是scala专用的 test 相当于java的junit -->
     <dependency>
         <groupId>org.scalatest</groupId>
         <artifactId>scalatest_${scala.binary.version}</artifactId>
         <version>${scala.test.version}</version>
     </dependency>
-	<!-- 这个是spark -->
+    <!-- 这个是spark -->
     <dependency>
         <groupId>org.apache.spark</groupId>
         <artifactId>spark-sql_${scala.binary.version}</artifactId>
@@ -194,7 +194,7 @@ class ScalaTest extends UnitSpec {
 
 ## 数据类型
 
-![image-20220322141620044](scala.assets\image-20220322141620044.png)
+![image-20220322141620044](scala.assets/image-20220322141620044.png)
 
 | 数据类型 | 描述                                                         |
 | -------- | ------------------------------------------------------------ |
@@ -506,7 +506,7 @@ println(m2(fun1))
   *
   * @param fun
   * @return int
-  */	
+  */    
 def m3(num1: Int, num2: Int) : Int = num1 + num2
 // 用下划线将方法转为函数
 val fun_m3 = m3 _
@@ -574,11 +574,11 @@ test("exception") {
 
 ## 可变集合
 
-![image-20220324101727830](scala.assets\image-20220324101727830.png)
+![image-20220324101727830](scala.assets/image-20220324101727830.png)
 
 ## 不可变集合
 
-![image-20220324101754736](scala.assets\image-20220324101754736.png)
+![image-20220324101754736](scala.assets/image-20220324101754736.png)
 
 ## seq
 
@@ -746,15 +746,15 @@ test("list & set") {
 
 - ```scala
   class 类名(形参列表) {// 主构造器 
-  	// 类体 
-  	def this(形参列表) {
+    // 类体 
+    def this(形参列表) {
           this()
-  	 	// 辅助构造器 
-   	}
+        // 辅助构造器 
+    }
   
-   	def this(形参列表) {
-   	 //辅助构造器可以有多个... 
-   	} 
+    def this(形参列表) {
+     //辅助构造器可以有多个... 
+    } 
    }
   ```
 
@@ -1006,7 +1006,7 @@ test("Implicit values") {
 }
 ```
 
-![image-20220326154230865](scala.assets\image-20220326154230865.png)
+![image-20220326154230865](scala.assets/image-20220326154230865.png)
 
 #### 隐式值
 
@@ -1061,7 +1061,7 @@ implicit class Calculator(x: Int) {
 - ActorRef:可以理解成是Actor的代理或者引用。消息是通过ActorRef来发送, 而不能通过Actor 发送消息，通过哪个ActorRef 发消息，就表示把该消息发 给哪个Actor。
 - 消息发送到Dispatcher Message (消息分发器)，它得到消息后，会将消息进 行分发到对应的MailBox。(注: Dispatcher Message 可以理解成是一个线程 池, MailBox 可以理解成是消息队列，可以缓冲多个消息，遵守FIFO)。
 - Actor 可以通过 receive方法来获取消息，然后进行处理。
-- ![image-20220326201924812](scala.assets\image-20220326201924812.png)
+- ![image-20220326201924812](scala.assets/image-20220326201924812.png)
 
 ### 发送消息
 
@@ -1166,7 +1166,7 @@ object MyActor extends App{
 
 ### 网络链路
 
-![image-20220326225204516](scala.assets\image-20220326225204516.png)
+![image-20220326225204516](scala.assets/image-20220326225204516.png)
 
 ### **端口**
 
@@ -1330,7 +1330,7 @@ object CustomerActor extends App {
 - 逆变 class MyList[-T] 比如Son是Father的子类，则MyList[Son] 也是 MyList[Father]的**父类**
 
 - 不变 class MyList[T] 比如Son是Father的子类，则MyList[Son] 与 MyList[Father] **无父子关系**
-- ![image-20220329103550931](scala.assets\image-20220329103550931.png)
+- ![image-20220329103550931](scala.assets/image-20220329103550931.png)
 
 ## 上界
 
