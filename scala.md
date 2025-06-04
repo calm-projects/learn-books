@@ -1399,52 +1399,6 @@ class Person(val name: String, val age: Int) {
 
 ## 视图界定
 
-- <% 的意思是“ view bounds”(视界)，它比<:适用的范围更广，除了所有的子类型，还允许隐式转换类型。 
-
-- ```scala
-  // 定义
-  def method [A <% B](arglist): R = ...
-  ==
-  def method [A](arglist)(implicit viewAB: A => B): R = ...
-  ==
-  implicit def conver(a:A): B = …
-  
-  // <% 除了方法使用之外，class 声明类型参数时也可使用： 
-  class A[T <% Int]
-  ```
-
-- ```scala
-  // 例子1
-  object ViewBoundsDemo {
-    def main(args: Array[String]): Unit = { //方式1
-      val compareComm1 = new CompareComm(20, 30)  
-      println(compareComm1.greater)
-      // 同时，也支持前面学习过的上界使用的各种方式,看后面代码
-    }
-  }
-  
-  class CompareComm[T <% Comparable[T]](obj1: T, obj2: T) {
-    def greater = if (obj1.compareTo(obj2) > 0) obj1 else obj2
-  }
-  
-  // 例子2
-  class Person(val name: String, val age: Int) extends Ordered[Person] {
-    override def compare(that: Person): Int = this.age - that.age
-  
-    override def toString: String = this.name + "\t" + this.age
-  }
-  
-  class CompareComm2[T <% Ordered[T]](obj1: T, obj2: T) {
-    def getter = if (obj1 > obj2) obj1 else obj2
-    def getter2 = if (obj1.compareTo(obj2) > 0) obj1 else obj2
-  }
-  
-  object test extends App {
-    val p1 = new Person("tom", 10)
-    val p2 = new Person("jack", 20)
-    val compareComm2 = new CompareComm2(p1, p2)
-    println (compareComm2.getter)
-  }
-  ```
+- <% 的意思是“ view bounds”(视界)，它比<:适用的范围更广，除了所有的子类型，还允许隐式转换类型。 视图界定是 Scala 2 的旧语法，推荐使用上下文界定
 
   
