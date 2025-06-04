@@ -1365,30 +1365,29 @@ def f[A](a: A)(implicit arg:B[A]) = println(a)
 - 例子
 
 ```scala
-// 方式1
 
-class CompareComm4[T: Ordering](obj1: T, obj2: T)(implicit comparetor: Ordering[T]) {
-  def geatter = if (comparetor.compare(obj1, obj2) > 0) obj1 else obj2
-}
-
-// 方式2, 将隐式参数放到方法内
-
-class CompareComm5[T: Ordering](o1: T, o2: T) {
-  def geatter = {
-    def f1(implicit cmptor: Ordering[T]) = cmptor.compare(o1, o2)
-
-    if (f1 > 0) o1 else o2
+class TestCompare1[T: Ordering](obj1: T, obj2: T) {
+  def greater: T = {
+    val comparator = implicitly[Ordering[T]]
+    if (comparator.compare(obj1, obj2) > 0) obj1 else obj2
   }
 }
 
-// 方式3, 使用implicitly语法糖，最简单 (推荐使用)
+class TestCompare2[T](obj1: T, obj2: T)(implicit comp: Ordering[T]) {
+  def greater(): T = if (comp.compare(obj1, obj2) > 0) obj1 else obj2
+}
 
-class CompareComm6[T: Ordering](o1: T, o2: T) {
-  def geatter = {
-    // 这句话就是会发生隐式转换，获取到隐式值 personComparetor
-    val comparetor = implicitly[Ordering[T]]
-    println ("CompareComm6 comparetor" + comparetor.hashCode())
-    if (comparetor.compare(o1, o2) > 0) o1 else o2
+import scala.math.Ordering.Implicits._
+
+class TestCompare3[T: Ordering](obj1: T, obj2: T) {
+  def greater: T = obj1.max(obj2) // 也可以写 if (obj1 > obj2)
+}
+
+object Test {
+  def main(args: Array[String]): Unit = {
+    println(new TestCompare1(1, 2).greater)
+    println(new TestCompare2(1, 2).greater())
+    println(new TestCompare3(1, 2).greater)
   }
 }
 
